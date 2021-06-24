@@ -1,0 +1,8 @@
+{
+  "edgecovid19Workflow.EDGEconfig": "configs/config.illumina.trim_swift_primer.txt",
+  "edgecovid19Workflow.projName":"edgecovid19_test",
+  "edgecovid19Workflow.Read_1":"test/SARS-COVID-test-swift-v2.1.fastq",
+  "edgecovid19Workflow.Read_2":"test/SARS-COVID-test-swift-v2.2.fastq",
+  "edgecovid19Workflow.mem_gb": 8,
+  "edgecovid19Workflow.cpu": 3
+}

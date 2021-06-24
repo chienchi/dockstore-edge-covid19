@@ -1,0 +1,152 @@
+[project]
+##number of cpu
+cpu=3
+##store output to [outpath]/[projname] 
+##outpath=
+projname=
+projdesc=
+projid=
+projcode=
+projowner=
+projrunhost=
+
+[Download Fastq]
+DoFastqDownload=auto
+
+[Download SRA]
+DoSRADownload=0
+## SRA accessions ByrRun, ByExp, BySample, ByStudy
+SRA_id=
+
+[Count Fastq]
+DoCountFastq=auto
+fastq_source=nanopore
+
+[Quality Trim and Filter]
+## boolean, 1=yes, 0=no
+DoQC=1
+## phred encoding offset,  0 for autocheck
+qc_phred_offset=0
+##Targets quality level for trimming
+q=7
+##Trimmed sequence length will have at least minimum length 
+min_L=350
+##Average quality cutoff
+avg_q=0
+##"N" base cutoff.  Trimmed read has more than this number of continuous base "N" will be discarded. 
+n=10
+##Low complexity filter ratio, Maximum fraction of mono-/di-nucleotide sequence
+lc=0.85
+## Trim reads with adapters or contamination sequences
+adapter=
+porechop=swift_primer_schemes_v2
+## Trim polyA (>15)
+polyA=0
+## phiX filter, boolean, 1=yes, 0=no
+## phiX=0
+## Cut # bp from 5 end before quality trimming/filtering 
+5end=0
+## Cut # bp from 3 end before quality trimming/filtering 
+3end=0
+
+
+[Host Removal]
+## boolean, 1=yes, 0=no
+DoHostRemoval=0
+## Use more Host=  to remove multiple host reads
+Host=
+
+bwaMemOptions="-T 50"
+similarity=80
+
+[Assembly]
+## boolean, 1=yes, 0=no
+DoAssembly=0
+assembledContigs=
+inputContigs=
+minContigSize=200
+## spades, idba_ud, megahit, unicycler, or lrasm 
+assembler=idba_ud
+idbaOptions="--pre_correction --mink 31 --maxk 121 --step 20 --min_contig 200"
+## for spades
+## support algorithm: default, singlecell,metagenome,plasmid,rna
+SpadesAlgorithm=default
+SpadesPacbioFile=
+SpadesNanoporeFile=
+## for megahit
+megahit_preset=meta
+## for unicycler
+unicycler_mode=normal
+unicycler_lreads_file=
+unicycler_min_lreads=2000
+## for lrasm
+lrasm_num_consensus=3
+lrasm_preset=ont
+lrasm_ec=1
+lrasm_algorithm=miniasm
+
+
+[Reads Mapping To Contigs]
+# Reads mapping to contigs
+DoReadsMappingContigs=auto
+## support bowtie or bwa or minimap2
+r2c_aligner=minimap2
+r2c_aligner_options=
+r2c_extract_unmapped=0
+
+[Reads Mapping To Reference]
+# Reads mapping to reference
+DoReadsMappingReference=1
+## support bowtie or bwa or minimap2
+r2g_aligner=minimap2
+r2g_aligner_options=
+r2g_max_clip=150
+r2g_align_trim_bed_file=/home/edge/edge/edge_ui/data/swift_primer_schemes_v2.bed
+##r2g_min_mapq=42
+window_size=1000
+step_size=200
+reference=/home/edge/edge/edge_ui/data/SARS-CoV2/NC_045512.2.gbk
+MapUnmappedReads=0
+r2g_extract_mapped=0
+r2g_extract_unmapped=0
+r2g_get_consensus=1
+r2g_consensus_min_mapQ=60
+r2g_consensus_max_cov=8000
+r2g_consensus_alt_prop=0.5
+r2g_consensus_altIndel_prop=0.6
+r2g_consensus_min_cov=5
+r2g_consensus_min_baseQ=5
+r2g_consensus_disable_BAQ=1
+r2g_consensus_pcr_dedup=0
+r2g_consensus_comp_opt=0
+r2g_variant_call=0
+r2g_variant_call_min_qual=60
+r2g_variant_call_ploidy=diploid
+
+[Contigs Mapping To Reference]
+# Contig mapping to reference
+DoContigMapping=auto
+## identity cutoff
+identity=85
+MapUnmappedContigs=0
+
+[Variant Analysis]
+DoVariantAnalysis=auto
+
+[Contigs Annotation]
+## boolean, 1=yes, 0=no
+DoAnnotation=0
+## kingdom: Archaea Bacteria Mitochondria Viruses
+kingdom=Viruses
+contig_size_cut_for_annotation=700
+## support tools: Prokka or RATT
+annotateProgram=RATT
+## provide SourceGBK for RATT to transfer annotation
+annotateSourceGBK=/home/edge/edge_dev/edge_ui/data/SARS-CoV2/NC_045512.2.gbk
+
+[Generate JBrowse Tracks]
+DoJBrowse=1
+JBrowse_bam_min_depth=300
+
+[HTML Report]
+DoHTMLReport=1
