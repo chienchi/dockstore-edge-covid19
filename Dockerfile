@@ -16,6 +16,8 @@ LABEL website="https://edge-covid19.edgebioinformatics.org/"
 LABEL tags="bioinformatics"
 LABEL release-date="${EDGE_BUILD}"
 
+
+ADD configs /edge_configs
 # SystemCtl stop signal
 
 STOPSIGNAL SIGRTMIN+3

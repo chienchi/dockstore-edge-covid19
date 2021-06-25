@@ -37,6 +37,24 @@ This is the parameterization of the edge-covid19 workflow, a copy is present in 
 }
 
 ```
+
+There are several pre-configured config files in the `configs` sub-directory.  If you are familier with [EDGE configuration](https://edge.readthedocs.io/en/develop/commandline.html?highlight=config.txt#configuration-file) file, you can edit the file correspondingly for your sample. 
+
+* config.ONT.txt: default EDGE configuration file for Nanopore reads
+* config.ONT.trim_artic_primer_v1.txt: EDGE configuration file for Nanopore reads with artic primer v1 trimming.
+* config.ONT.trim_artic_primer_v2.txt: EDGE configuration file for Nanopore reads with artic primer v2 trimming.
+* config.ONT.trim_artic_primer_v3.txt: EDGE configuration file for Nanopore reads with artic primer v3 trimming.
+* config.ONT.trim_artic_primer_v4.txt: EDGE configuration file for Nanopore reads with artic primer v4 trimming.
+* config.ONT.trim_cdc_primer.txt: EDGE configuration file for Nanopore reads with CDC primer SC2_200324 trimming.
+* config.ONT.trim_swift_primer.txt: EDGE configuration file for Nanopore reads with SWIFT primer v2 trimming.
+* config.illumina.txt:  default EDGE configuration file for Illumina reads
+* config.illumina.trim_artic_primer_v1.txt: EDGE configuration file for Illumina reads with artic primer v1 trimming.
+* config.illumina.trim_artic_primer_v2.txt: EDGE configuration file for Illumina reads with artic primer v2 trimming.
+* config.illumina.trim_artic_primer_v3.txt: EDGE configuration file for Illumina reads with artic primer v3 trimming.
+* config.illumina.trim_artic_primer_v4.txt: EDGE configuration file for Illumina reads with artic primer v4 trimming.
+* config.illumina.trim_cdc_primer.txt: EDGE configuration file for Illumina reads with CDC primer SC2_200324 trimming.
+* config.illumina.trim_swift_primer.txt: EDGE configuration file for Illumina reads with SWIFT primer v2 trimming.
+
 #### Run with the CLI
 
 Run it using the `dockstore` CLI:
