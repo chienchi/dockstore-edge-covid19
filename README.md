@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/chienchi/dockstore-edge-covid19/status "Docker Repository on Quay")](https://quay.io/repository/chienchi/dockstore-edge-covid19)
+
 # dockstore-edge-covid19
 
 A repo for the `Dockstore.yml` which is used by the [Dockstore](https://www.dockstore.org) to register
@@ -61,12 +63,10 @@ Run it using the `dockstore` CLI:
 
 ```
 Usage:
-# fetch WDL
-$> dockstore tool wdl --entry quay.io/collaboratory/dockstore-edge-covid19 > Dockstore.wdl
 # make a runtime JSON template and edit it (or use the content of test.wdl.json above)
-$> dockstore tool convert wdl2json --wdl Dockstore.wdl > Dockstore.json
+$> dockstore tool convert entry2json --descriptor wdl --entry quay.io/chienchi/dockstore-edge-covid19:latest > Dockstore.json
 # run it locally with the Dockstore CLI
-$> dockstore tool launch --entry quay.io/collaboratory/dockstore-edge-covid19 --json Dockstore.json
+$> dockstore tool launch --entry quay.io/chienchi/dockstore-edge-covid19:latest --json Dockstore.json --descriptor wdl
 ```
 
 

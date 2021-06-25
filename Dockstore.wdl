@@ -27,7 +27,7 @@ task runEDGEcovid19 {
 	}
 
 	runtime {
-		docker: "bioedge/edge-covid19:latest"
+		docker: "quay.io/chienchi/dockstore-edge-covid19:latest"
 		memory: mem_gb + "GB"
 	}
 
