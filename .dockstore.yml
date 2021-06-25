@@ -1,0 +1,7 @@
+version: 1.0
+workflows:
+ - name: edge_covid19_workflow
+   subclass: WDL
+   primaryDescriptorPath: /Dockstore.wdl
+   testParameterFiles:
+    - /test/test.wdl.json
