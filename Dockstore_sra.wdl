@@ -3,19 +3,16 @@ task runEDGEcovid19 {
 	input {
 		File EDGEconfig
 		String projName
-		File Read_1
-		File? Read_2
+		String SRAacc
 		Int mem_gb
 		Int cpu
 	}
 
 	command{
 		sed -ie 's/projname=.*/projname=${projName}/' ${EDGEconfig} 
-		if [ -f "${Read_2}" ]; then
-			perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -p ${Read_1} ${Read_2}
-		else
-			perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -u ${Read_1} 
-		fi
+		sed -ie 's/DoSRADownload=.*/DoSRADownload=1/' ${EDGEconfig} 
+		sed -ie 's/SRA_id=.*/SRA_id=${SRAacc}/' ${EDGEconfig} 
+		perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} 
 		zip -r ${projName}_output.zip ${projName} 
 	}
 
@@ -42,19 +39,17 @@ task runEDGEcovid19 {
 workflow edgecovid19Workflow {
 	input {
 		File EDGEconfig
-		File Read_1
-		File? Read_2
+		String SRAacc
 		String projName = 'edgecovid19'
 		Int mem_gb = 8
 		Int cpu = 3
 	}
 	
-	call runEDGEcovid19 { input: EDGEconfig=EDGEconfig, Read_1=Read_1, Read_2=Read_2, projName=projName, mem_gb=mem_gb, cpu=cpu }
+	call runEDGEcovid19 { input: EDGEconfig=EDGEconfig, SRAacc=SRAacc, projName=projName, mem_gb=mem_gb, cpu=cpu }
 	
 	parameter_meta{
 		EDGEconfig: "the project configuration file which defined the workflow modules and parameters."
-		Read_1: "single end reads or  forward reads from paired-end data"
-		Read_2: "reverse reads from paired-end data"
+		SRAacc: "SRA run accession number ex: SRR11241255"
 		projName: "project name. Only alphabets, numbers and underscore are allowed"
 		
 		zip_output: "all project output directories/files zip output"

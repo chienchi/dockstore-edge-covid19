@@ -19,6 +19,7 @@ task runUShER{
 	runtime {
 		docker: "bioedge/edge-covid19:latest"
 		memory: mem_gb + "GB"
+		cpu: 1
 	}
 	
 	parameter_meta {

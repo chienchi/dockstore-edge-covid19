@@ -5,3 +5,8 @@ workflows:
    primaryDescriptorPath: /Dockstore.wdl
    testParameterFiles:
     - /test/test.wdl.json
+ - name: edge_covid19_sra_workflow
+   subclass: WDL
+   primaryDescriptorPath: /Dockstore_sra.wdl
+   testParameterFiles:
+    - /test/test_SRA.wdl.json
