@@ -12,9 +12,9 @@ task runEDGEcovid19 {
 	command{
 		sed -ie 's/projname=.*/projname=${projName}/' ${EDGEconfig} 
 		if [ -f "${Read_2}" ]; then
-			perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -p ${Read_1} ${Read_2}
+			perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -noColorLog -p ${Read_1} ${Read_2}
 		else
-			perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -u ${Read_1} 
+			perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -noColorLog -u ${Read_1} 
 		fi
 		zip -r ${projName}_output.zip ${projName} 
 	}

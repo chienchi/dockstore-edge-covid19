@@ -12,7 +12,7 @@ task runEDGEcovid19 {
 		sed -ie 's/projname=.*/projname=${projName}/' ${EDGEconfig} 
 		sed -ie 's/DoSRADownload=.*/DoSRADownload=1/' ${EDGEconfig} 
 		sed -ie 's/SRA_id=.*/SRA_id=${SRAacc}/' ${EDGEconfig} 
-		perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} 
+		perl /home/edge/edge/runPipeline -c ${EDGEconfig} -o $PWD/${projName} -cpu ${cpu} -noColorLog
 		zip -r ${projName}_output.zip ${projName} 
 	}
 
