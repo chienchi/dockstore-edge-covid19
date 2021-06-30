@@ -2,7 +2,7 @@
 
 # dockstore-edge-covid19
 
-A repo for the `Dockstore.yml` which is used by the [Dockstore](https://www.dockstore.org) to register
+A repo for the `dockstore.yml` which is used by the [Dockstore](https://www.dockstore.org) to register
 this tool/workflow and describe how to call edge-covid19 for the community.
 
 ## Running Manually
