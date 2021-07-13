@@ -4,7 +4,7 @@ MAINTAINER chienchi@lanl.gov
 
 ENV EDGE_VER 2.4.0
 ENV container docker
-ENV EDGE_BUILD "20210607"
+ENV EDGE_BUILD "20210713"
 ENV EDGE_HOME "/home/edge/edge"
 ENV PATH "$EDGE_HOME/bin:$EDGE_HOME/scripts:$EDGE_HOME/thirdParty/Anaconda2/bin:$EDGE_HOME/JBrowse/bin:${PATH}"
 ENV PERL5LIB "$EDGE_HOME/lib:$EDGE_HOME/lib/perl5/x86_64-linux-thread-multi:$EDGE_HOME/lib/perl5"
