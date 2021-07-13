@@ -2,7 +2,7 @@
 
 # dockstore-edge-covid19
 
-A repo for the `Dockstore.yml` which is used by the [Dockstore](https://www.dockstore.org) to register
+A repo for the `dockstore.yml` which is used by the [Dockstore](https://www.dockstore.org) to register
 this tool/workflow and describe how to call edge-covid19 for the community.
 
 ## Running Manually
@@ -13,7 +13,7 @@ $ cd dockstore-edge-covid19
 $ docker run -it --rm -v `pwd`:/repo bioedge/edge-covid19 bash
 
 # within the docker container
-perl /home/edge/edge/runPipeline -c /repo/configs/config.illumina.txt -o /repo/testing -cpu 3 -p /repo/test/SARS-COVID-test-swift-v2.1.fastq /repo/test/SARS-COVID-test-swift-v2.2.fastq
+perl /home/edge/edge/runPipeline -c /repo/configs/config.illumina.txt -o /repo/testing -cpu 3 -noColorLog -p /repo/test/SARS-COVID-test-swift-v2.1.fastq /repo/test/SARS-COVID-test-swift-v2.2.fastq
 
 ```
 
