@@ -20,7 +20,7 @@ SRA_id=
 
 [Count Fastq]
 DoCountFastq=auto
-fastq_source=not
+fastq_source=nanopore
 
 [Quality Trim and Filter]
 ## boolean, 1=yes, 0=no
@@ -28,9 +28,9 @@ DoQC=1
 ## phred encoding offset,  0 for autocheck
 qc_phred_offset=0
 ##Targets quality level for trimming
-q=20
+q=7
 ##Trimmed sequence length will have at least minimum length 
-min_L=50
+min_L=350
 ##Average quality cutoff
 avg_q=0
 ##"N" base cutoff.  Trimmed read has more than this number of continuous base "N" will be discarded. 
@@ -39,7 +39,7 @@ n=10
 lc=0.85
 ## Trim reads with adapters or contamination sequences
 adapter=
-porechop=artic_ncov2019_primer_schemes_V3
+porechop=NEB_VarSkip.scheme
 ## Trim polyA (>15)
 polyA=0
 ## phiX filter, boolean, 1=yes, 0=no
@@ -48,7 +48,6 @@ polyA=0
 5end=0
 ## Cut # bp from 3 end before quality trimming/filtering 
 3end=0
-
 
 
 [Host Removal]
@@ -91,7 +90,7 @@ lrasm_algorithm=miniasm
 # Reads mapping to contigs
 DoReadsMappingContigs=auto
 ## support bowtie or bwa or minimap2
-r2c_aligner=bwa
+r2c_aligner=minimap2
 r2c_aligner_options=
 r2c_extract_unmapped=0
 
@@ -99,10 +98,10 @@ r2c_extract_unmapped=0
 # Reads mapping to reference
 DoReadsMappingReference=1
 ## support bowtie or bwa or minimap2
-r2g_aligner=bwa
+r2g_aligner=minimap2
 r2g_aligner_options=
-r2g_max_clip=50
-r2g_align_trim_bed_file=/home/edge/edge/edge_ui/data/artic_ncov2019_primer_schemes_V3.bed
+r2g_max_clip=150
+r2g_align_trim_bed_file=/home/edge/edge/edge_ui/data/NEB_VarSkip.scheme.bed
 ##r2g_min_mapq=42
 window_size=1000
 step_size=200
@@ -114,16 +113,16 @@ r2g_get_consensus=1
 r2g_consensus_min_mapQ=60
 r2g_consensus_max_cov=0
 r2g_consensus_alt_prop=0.5
-r2g_consensus_altIndel_prop=0.5
+r2g_consensus_altIndel_prop=0.6
 r2g_consensus_min_cov=5
-r2g_consensus_min_baseQ=20
+r2g_consensus_min_baseQ=5
 r2g_consensus_disable_BAQ=1
 r2g_consensus_pcr_dedup=0
 r2g_consensus_comp_opt=0
-r2g_consensus_homopolymer_filter=0
-r2g_consensus_strandbias_filter=0
+r2g_consensus_homopolymer_filter=1
+r2g_consensus_strandbias_filter=1
 r2g_consensus_pangolin_mode=usher
-r2g_variant_call=1
+r2g_variant_call=0
 r2g_variant_call_min_qual=60
 r2g_variant_call_ploidy=diploid
 
